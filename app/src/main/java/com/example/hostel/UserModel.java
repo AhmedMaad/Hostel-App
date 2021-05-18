@@ -3,7 +3,6 @@ package com.example.hostel;
 
 public class UserModel {
 
-    //private String id;
     private String name;
     private String email;
     private String phoneNumber;
@@ -19,10 +18,6 @@ public class UserModel {
         this.phoneNumber = phoneNumber;
         this.gender = gender;
     }
-
-    /*public String getId() {
-        return id;
-    }*/
 
     public String getName() {
         return name;
