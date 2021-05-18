@@ -10,16 +10,15 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <Button
+        <ImageButton
             android:id="@+id/addPhoto"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
             android:layout_gravity="center"
             android:layout_marginTop="16dp"
-            android:drawableTop="@drawable/ic_add"
             android:onClick="choosePicture"
-            android:text="Photo"
-            android:textColor="#242424"
+            android:src="@drawable/ic_add"
+            android:scaleType="fitCenter"
             app:backgroundTint="#5B121212" />
 
         <EditText
@@ -30,7 +29,7 @@
             android:layout_marginTop="30dp"
             android:layout_marginEnd="15dp"
             android:layout_marginBottom="15dp"
-            android:background="#009688"
+            android:background="@color/dark_green"
             android:hint="Address"
             android:inputType="textPostalAddress"
             android:padding="20dp"
@@ -44,7 +43,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginEnd="15dp"
             android:layout_marginBottom="15dp"
-            android:background="#009688"
+            android:background="@color/dark_green"
             android:hint="Price"
             android:padding="20dp"
             android:textColor="@color/black" />
@@ -57,7 +56,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginEnd="15dp"
             android:layout_marginBottom="15dp"
-            android:background="#009688"
+            android:background="@color/dark_green"
             android:gravity="start|top"
             android:hint="Specifications\nand\ndetails"
             android:inputType="textMultiLine"
@@ -73,7 +72,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginEnd="15dp"
             android:layout_marginBottom="15dp"
-            android:background="#009688"
+            android:background="@color/dark_green"
             android:hint="Name"
             android:inputType="textPersonName"
             android:padding="20dp"
@@ -87,22 +86,32 @@
             android:layout_marginTop="15dp"
             android:layout_marginEnd="15dp"
             android:layout_marginBottom="15dp"
-            android:background="#009688"
+            android:background="@color/dark_green"
             android:hint="Phone number"
             android:inputType="phone"
             android:padding="20dp"
             android:textColor="@color/black" />
 
         <Button
+            android:id="@+id/btn_done"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="16dp"
-            android:backgroundTint="#009688"
+            android:backgroundTint="@color/dark_green"
+            android:onClick="addProduct"
             android:text="Done" />
 
-
+        <ProgressBar
+            android:id="@+id/progress_circular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="16dp"
+            android:indeterminateTint="@color/dark_green"
+            android:visibility="gone" />
 
     </LinearLayout>
 

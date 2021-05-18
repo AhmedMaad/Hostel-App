@@ -45,12 +45,11 @@ public class SignupActivity extends AppCompatActivity {
 
         String email = emailET.getText().toString();
         String password = passwordET.getText().toString();
-        if (email.isEmpty() || password.isEmpty()){
+        if (email.isEmpty() || password.isEmpty()) {
             Toast.makeText(this, R.string.missing_fields, Toast.LENGTH_SHORT).show();
             emailET.setError(getString(R.string.email_required));
             passwordET.setError(getString(R.string.password_required));
-        }
-        else {
+        } else {
             progressBar.setVisibility(View.VISIBLE);
             addNewUserToAuth(email, password);
         }
@@ -63,8 +62,9 @@ public class SignupActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+                            Constants.USER_ID = task.getResult().getUser().getUid();
                             //Create new user in firestore
-                            createUserInFirestore(email);
+                            createUserInFirestore(email, Constants.USER_ID);
                         } else {
                             progressBar.setVisibility(View.INVISIBLE);
                             Toast.makeText(SignupActivity.this, "Creating user Failed", Toast.LENGTH_SHORT).show();
@@ -74,7 +74,7 @@ public class SignupActivity extends AppCompatActivity {
                 });
     }
 
-    private void createUserInFirestore(String email) {
+    private void createUserInFirestore(String email, String userId) {
         EditText phoneNoET = findViewById(R.id.signUpPhone);
         EditText nameET = findViewById(R.id.signUpName);
         RadioGroup rg = findViewById(R.id.radioGroup);
@@ -87,11 +87,15 @@ public class SignupActivity extends AppCompatActivity {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db
                 .collection("users")
-                .add(user)
+                .document(userId)
+                .set(user)
                 .addOnSuccessListener(documentReference -> {
                     progressBar.setVisibility(View.INVISIBLE);
                     //Updating id to make delete and update functionality later
-                    documentReference.update("id", documentReference.getId());
+
+                    //documentReference.update("id", documentReference.getId());
+                    //Constants.USER_ID = documentReference.getId();
+
                     Toast.makeText(SignupActivity.this, R.string.user_added, Toast.LENGTH_SHORT).show();
                     //navigate to main activity
                     Intent i = new Intent(this, MainActivity.class);

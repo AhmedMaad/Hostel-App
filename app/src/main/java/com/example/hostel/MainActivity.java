@@ -40,9 +40,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
     }
 
-    private void changeActivity() {
+    private void changeActivity(String product) {
         if (user.equals("supplier")) {
             Intent intent = new Intent(MainActivity.this, ApartmentSupplier.class);
+            intent.putExtra(Constants.PRODUCT, product);
             startActivity(intent);
         } else if (user.equals("consumer")) {
             Intent intent = new Intent(MainActivity.this, AvailableApartments.class);
@@ -73,9 +74,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             button.setVisibility(View.VISIBLE);
             user = "consumer";
         } else if (v.getId() == R.id.apartment) {
-            changeActivity();
+            changeActivity(Constants.APARTMENT);
         } else if (v.getId() == R.id.room) {
-            changeActivity();
+            changeActivity(Constants.ROOM);
         }
     }
 

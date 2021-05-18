@@ -53,6 +53,7 @@ public class LoginActivity extends AppCompatActivity {
                         progressBar.setVisibility(View.INVISIBLE);
                         if (task.isSuccessful()) {
                             //navigate to main activity
+                            Constants.USER_ID = task.getResult().getUser().getUid();
                             Intent i = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(i);
                             finish();
