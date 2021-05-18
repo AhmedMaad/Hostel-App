@@ -1,39 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
+    android:orientation="vertical"
     android:gravity="center">
 
     <EditText
         android:id="@+id/logInEmail"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
-        android:ems="13"
         android:hint="Email"
         android:inputType="textEmailAddress"
         android:selectAllOnFocus="true" />
 
     <EditText
         android:id="@+id/logInPassword"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/logInEmail"
-        android:layout_alignStart="@+id/logInEmail"
-        android:layout_alignLeft="@+id/logInEmail"
         android:layout_marginTop="20dp"
-        android:ems="13"
         android:hint="Password"
         android:inputType="textPassword" />
 
     <Button
+        android:onClick="login"
         android:id="@+id/logInButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/logInPassword"
         android:layout_marginStart="40dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="40dp"
@@ -54,10 +49,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="15dp"
-            android:layout_marginRight="15dp"
             android:text="Do not have an account yet" />
 
         <Button
+            android:onClick="openSignupActivity"
             android:id="@+id/signInButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -66,4 +61,4 @@
             app:backgroundTint="#009688" />
     </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>

@@ -1,56 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:id="@+id/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center">
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="16dp">
 
     <EditText
         android:id="@+id/signUpName"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:ems="13"
         android:hint="Name"
         android:inputType="textPersonName"
         android:selectAllOnFocus="true" />
 
     <EditText
         android:id="@+id/signUpEmail"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/signUpName"
-        android:layout_alignStart="@+id/signUpName"
-        android:layout_alignLeft="@+id/signUpName"
         android:layout_marginTop="15dp"
-        android:ems="13"
         android:hint="Email"
         android:inputType="textEmailAddress" />
 
     <EditText
         android:id="@+id/signUpPassword"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/signUpEmail"
-        android:layout_alignStart="@+id/signUpEmail"
-        android:layout_alignLeft="@+id/signUpEmail"
         android:layout_marginTop="15dp"
-        android:ems="13"
         android:hint="Password"
         android:inputType="textPassword" />
 
     <EditText
         android:id="@+id/signUpPhone"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/signUpPassword"
-        android:layout_alignStart="@+id/signUpPassword"
-        android:layout_alignLeft="@+id/signUpPassword"
         android:layout_marginTop="15dp"
-        android:ems="13"
         android:hint="Phone number"
         android:inputType="phone" />
 
@@ -58,40 +45,32 @@
         android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/signUpPhone"
-        android:layout_alignStart="@id/signUpPhone"
-        android:layout_alignLeft="@id/signUpPhone"
-        android:layout_alignEnd="@+id/signUpPhone"
-        android:layout_alignRight="@+id/signUpPhone"
         android:layout_marginTop="15dp"
-        android:gravity="center_horizontal"
         android:orientation="horizontal">
 
         <RadioButton
             android:id="@+id/radioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_marginEnd="16dp"
             android:text="Male" />
 
         <RadioButton
             android:id="@+id/radioButton3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="Female" />
 
     </RadioGroup>
-
 
     <Button
         android:id="@+id/signInButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/radioGroup"
-        android:layout_marginTop="20dp"
         android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="40dp"
+        android:onClick="signupNewUser"
         android:text="Sign up"
         android:textSize="16sp"
         app:backgroundTint="#009688" />
@@ -99,7 +78,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_marginBottom="30dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal">
@@ -109,17 +87,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="15dp"
-            android:layout_marginRight="15dp"
             android:text="Do you have an account?" />
 
         <Button
             android:id="@+id/loginButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="openLoginActivity"
             android:text="Log in"
             android:textSize="16sp"
             app:backgroundTint="#009688" />
     </LinearLayout>
-
 
 </LinearLayout>
