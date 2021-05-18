@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
+    android:gravity="center"
     android:orientation="vertical"
-    android:gravity="center">
+    android:padding="16dp">
 
     <EditText
         android:id="@+id/logInEmail"
@@ -25,13 +25,13 @@
         android:inputType="textPassword" />
 
     <Button
-        android:onClick="login"
         android:id="@+id/logInButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="40dp"
+        android:onClick="login"
         android:text="log In"
         android:textSize="16sp"
         app:backgroundTint="#009688" />
@@ -51,14 +51,13 @@
             android:layout_marginEnd="15dp"
             android:text="Do not have an account yet" />
 
-        <Button
-            android:onClick="openSignupActivity"
-            android:id="@+id/signInButton"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sign up"
-            android:textSize="16sp"
-            app:backgroundTint="#009688" />
+            android:onClick="openSignupActivity"
+            android:text="@string/sign_up"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="16sp" />
     </LinearLayout>
 
 </LinearLayout>

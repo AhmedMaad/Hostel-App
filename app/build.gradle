@@ -9,11 +9,11 @@ android {
 
     defaultConfig {
         applicationId "com.example.hostel"
-        minSdkVersion 17
+        minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -44,4 +44,5 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:28.0.1')
     implementation 'com.google.firebase:firebase-auth'
     implementation 'com.google.firebase:firebase-firestore'
+    implementation 'com.android.support:multidex:1.0.3'
 }
