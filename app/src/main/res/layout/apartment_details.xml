@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="175dp">
+
+        <ImageSwitcher
+            android:id="@+id/imageSwitcher"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_margin="15dp"
+            tools:background="@drawable/ic_home"
+            tools:scaleX=".5">
+        </ImageSwitcher>
+
+        <ImageButton
+            android:id="@+id/next"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:layout_alignTop="@id/imageSwitcher"
+            android:layout_alignEnd="@id/imageSwitcher"
+            android:alpha=".5"
+            android:background="#30000000"
+            android:onClick="changeImage"
+            android:rotation="180"
+            app:srcCompat="?attr/homeAsUpIndicator" />
+
+        <ImageButton
+            android:id="@+id/prev"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:layout_alignStart="@id/imageSwitcher"
+            android:layout_alignTop="@id/imageSwitcher"
+            android:alpha=".5"
+            android:background="#30000000"
+            android:onClick="changeImage"
+            app:srcCompat="?attr/homeAsUpIndicator" />
+
+        <TextView
+            android:id="@+id/apartmentDetAddressCon"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageSwitcher"
+            android:layout_margin="15dp"
+            android:background="#009688"
+            android:padding="20dp"
+            android:text="Address"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/apartmentDetPriceCon"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/apartmentDetAddressCon"
+            android:layout_margin="15dp"
+            android:background="#009688"
+            android:padding="20dp"
+            android:text="Price"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/apartmentDetSpecificationsCon"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/apartmentDetPriceCon"
+            android:layout_margin="15dp"
+            android:background="#009688"
+            android:gravity="start|top"
+            android:inputType="textMultiLine"
+            android:padding="20dp"
+            android:text="Specifications\nand\ndetails"
+            android:textColor="@color/black"
+            tools:ignore="TextViewEdits" />
+
+        <TextView
+            android:id="@+id/apartmentDetNameCon"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/apartmentDetSpecificationsCon"
+            android:layout_margin="15dp"
+            android:background="#009688"
+            android:padding="20dp"
+            android:text="Name"
+            android:textColor="@color/black" />
+        <TextView
+            android:id="@+id/apartmentDetPhoneCon"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/apartmentDetNameCon"
+            android:layout_margin="15dp"
+            android:background="#009688"
+            android:padding="20dp"
+            android:text="Phone number"
+            android:textColor="@color/black" />
+
+    </RelativeLayout>
+</ScrollView>

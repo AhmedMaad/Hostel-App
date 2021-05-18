@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/header_cover_image"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_alignParentTop="true"
+            android:scaleType="centerCrop" />
+
+        <ImageView
+            android:id="@+id/user_profile_photo"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_below="@+id/header_cover_image"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-60dp"
+            android:elevation="5dp"
+            android:scaleType="centerCrop"
+            tools:srcCompat="@tools:sample/avatars[2]" />
+
+        <Button
+            android:id="@+id/edit"
+            android:layout_width="60dp"
+            android:layout_height="35dp"
+            android:layout_alignBottom="@id/user_profile_photo"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="15dp"
+            android:backgroundTint="#009688"
+            android:onClick="onClick"
+            app:icon="@drawable/ic_edit" />
+
+        <RelativeLayout
+            android:id="@+id/dvider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/header_cover_image"
+            android:background="#009688"
+            android:elevation="4dp"
+            android:paddingBottom="24dp" />
+
+        <EditText
+            android:id="@+id/profileName"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/user_profile_photo"
+            android:layout_margin="5dp"
+            android:background="#fff"
+            android:elevation="4dp"
+            android:enabled="false"
+            android:padding="20dp"
+            android:text="Name" />
+
+        <EditText
+            android:id="@+id/profileGender"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/profileName"
+            android:layout_margin="5dp"
+            android:background="#fff"
+            android:elevation="4dp"
+            android:enabled="false"
+            android:padding="20dp"
+            android:text="Gender"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/profileAddress"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/profileGender"
+            android:layout_margin="5dp"
+            android:background="#fff"
+            android:elevation="4dp"
+            android:enabled="false"
+            android:padding="20dp"
+            android:text="Address" />
+
+        <EditText
+            android:id="@+id/profileNumber"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/profileAddress"
+            android:layout_margin="5dp"
+            android:background="#fff"
+            android:elevation="4dp"
+            android:enabled="false"
+            android:padding="20dp"
+            android:text="Number" />
+
+        <Button
+            android:id="@+id/done"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/profileNumber"
+            android:layout_centerHorizontal="true"
+            android:onClick="onClick"
+            android:text="Done"
+            android:visibility="gone"
+            app:backgroundTint="#009688"
+            tools:visibility="visible" />
+
+        <Button
+            android:id="@+id/myAds"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/profileNumber"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:text="My ads"
+            app:backgroundTint="#009688" />
+    </RelativeLayout>
+
+</ScrollView>
