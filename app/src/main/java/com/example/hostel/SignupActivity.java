@@ -46,9 +46,9 @@ public class SignupActivity extends AppCompatActivity {
         String email = emailET.getText().toString();
         String password = passwordET.getText().toString();
         if (email.isEmpty() || password.isEmpty()){
-            Toast.makeText(this, "Missing required fields", Toast.LENGTH_SHORT).show();
-            emailET.setError("Email is required");
-            passwordET.setError("Password is required");
+            Toast.makeText(this, R.string.missing_fields, Toast.LENGTH_SHORT).show();
+            emailET.setError(getString(R.string.email_required));
+            passwordET.setError(getString(R.string.password_required));
         }
         else {
             progressBar.setVisibility(View.VISIBLE);
@@ -92,7 +92,7 @@ public class SignupActivity extends AppCompatActivity {
                     progressBar.setVisibility(View.INVISIBLE);
                     //Updating id to make delete and update functionality later
                     documentReference.update("id", documentReference.getId());
-                    Toast.makeText(this, "User Added Successfully", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignupActivity.this, R.string.user_added, Toast.LENGTH_SHORT).show();
                     //navigate to main activity
                     Intent i = new Intent(this, MainActivity.class);
                     startActivity(i);
