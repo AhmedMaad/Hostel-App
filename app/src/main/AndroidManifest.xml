@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Hostel">
-        <activity android:name=".AdsActivity"></activity>
+        <activity
+            android:name=".AdsActivity"
+            android:label="My Ads" />
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
