@@ -12,7 +12,7 @@
         <activity
             android:name=".AdsActivity"
             android:label="My Ads" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,7 +34,7 @@
             android:name=".ApartmentDetails"
             android:label="Details" />
         <activity android:name=".AvailableApartments" />
-        <activity android:name=".SplashActivity" />
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>
