@@ -8,5 +8,6 @@ public class Constants {
     public static final String ROOM = "room";
     public static final String PRODUCT = "product";
     public static String USER_ID;
+    public static final String PRODUCTS = "products";
 
 }

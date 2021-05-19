@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
         } else if (user.equals("consumer")) {
             Intent intent = new Intent(MainActivity.this, AvailableApartments.class);
+            intent.putExtra(Constants.PRODUCT, product);
             startActivity(intent);
         }
     }

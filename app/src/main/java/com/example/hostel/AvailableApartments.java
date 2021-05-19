@@ -11,21 +11,55 @@ import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class AvailableApartments extends ListActivity {
 
-    private ListView listView;
-    private String[] titles = {"India", "China", "Nepal", "Bhutan"};
+    /*private String[] titles = {"India", "China", "Nepal", "Bhutan"};
     private String[] prices = {"Delhi", "Beijing", "Kathmandu", "Thimphu"};
     private Integer[] imageid = {
             R.drawable.ic_home,
             R.drawable.ic_home,
             R.drawable.ic_home,
-            R.drawable.ic_home};
+            R.drawable.ic_home};*/
+
+    private ArrayList<ProductModel> products = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.available_apartments);
+
+        String productType = getIntent().getStringExtra(Constants.PRODUCT);
+        loadProducts(productType);
+
+    }
+
+    private void loadProducts(String productType) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        CollectionReference collection = db.collection(Constants.PRODUCTS);
+        collection.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                List<DocumentSnapshot> documentSnapshots = queryDocumentSnapshots.getDocuments();
+                for (int i = 0; i < documentSnapshots.size(); ++i) {
+                    ProductModel productModel = documentSnapshots.get(i).toObject(ProductModel.class);
+                    if (productModel.getProductType().equals(productType))
+                        products.add(productModel);
+                }
+                showProducts();
+            }
+        });
+    }
+
+    private void showProducts() {
 
         // Setting header
         SearchView searchView = new SearchView(this);
@@ -34,7 +68,7 @@ public class AvailableApartments extends ListActivity {
         listView.addHeaderView(searchView);
 
         // For populating list data
-        CustomListView customListView = new CustomListView(this, titles, prices, imageid);
+        CustomListView customListView = new CustomListView(this, products);
         listView.setAdapter(customListView);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -44,5 +78,7 @@ public class AvailableApartments extends ListActivity {
                 startActivity(intent);
             }
         });
+
     }
+
 }

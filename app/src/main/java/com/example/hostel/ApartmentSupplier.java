@@ -118,7 +118,7 @@ public class ApartmentSupplier extends AppCompatActivity {
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db
-                .collection("products")
+                .collection(Constants.PRODUCTS)
                 .add(product)
                 .addOnSuccessListener(documentReference -> {
                     documentReference.update("id", documentReference.getId());

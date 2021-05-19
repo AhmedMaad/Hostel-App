@@ -8,18 +8,19 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+
 public class CustomListView extends ArrayAdapter {
-    private String[] titles;
-    private String[] prices;
-    private Integer[] imageid;
+
+    private ArrayList<ProductModel> products = new ArrayList<>();
     private Activity context;
 
-    public CustomListView(Activity context, String[] titles, String[] prices, Integer[] imageid) {
-        super(context, R.layout.row_item, titles);
+    public CustomListView(Activity context, ArrayList<ProductModel> products) {
+        super(context, R.layout.row_item, products);
         this.context = context;
-        this.titles = titles;
-        this.prices = prices;
-        this.imageid = imageid;
+        this.products = products;
     }
 
     @Override
@@ -27,13 +28,16 @@ public class CustomListView extends ArrayAdapter {
         View row = convertView;
         LayoutInflater inflater = context.getLayoutInflater();
         if (convertView == null)
-            row = inflater.inflate(R.layout.row_item, null, true);
-        TextView titleTextView = (TextView) row.findViewById(R.id.titleTextView);
-        TextView priceTextView = (TextView) row.findViewById(R.id.priceTextView);
-        ImageView apartImageView = (ImageView) row.findViewById(R.id.apartImageView);
-        titleTextView.setText(titles[position]);
-        priceTextView.setText(prices[position]);
-        apartImageView.setImageResource(imageid[position]);
+            row = inflater.inflate(R.layout.row_item, parent, false);
+        TextView titleTextView = row.findViewById(R.id.titleTextView);
+        TextView priceTextView = row.findViewById(R.id.priceTextView);
+        ImageView apartImageView = row.findViewById(R.id.apartImageView);
+        titleTextView.setText(products.get(position).getAddress());
+        priceTextView.setText(String.valueOf(products.get(position).getPrice()));
+        Picasso
+                .with(context)
+                .load(products.get(position).getPicture())
+                .into(apartImageView);
         return row;
     }
 }
