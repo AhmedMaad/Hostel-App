@@ -91,10 +91,6 @@ public class SignupActivity extends AppCompatActivity {
                 .set(user)
                 .addOnSuccessListener(documentReference -> {
                     progressBar.setVisibility(View.INVISIBLE);
-                    //Updating id to make delete and update functionality later
-
-                    //documentReference.update("id", documentReference.getId());
-                    //Constants.USER_ID = documentReference.getId();
 
                     Toast.makeText(SignupActivity.this, R.string.user_added, Toast.LENGTH_SHORT).show();
                     //navigate to main activity

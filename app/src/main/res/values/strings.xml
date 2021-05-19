@@ -25,4 +25,6 @@
     <string name="password_required">Password is required</string>
     <string name="missing_fields">Missing required fields</string>
     <string name="product_added">Product Added Successfully</string>
+    <string name="no_mobile">No mobile number associated</string>
+    <string name="picture_required">A picture is required</string>
 </resources>

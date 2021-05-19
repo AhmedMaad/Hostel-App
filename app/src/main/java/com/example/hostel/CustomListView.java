@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class CustomListView extends ArrayAdapter {
 
-    private ArrayList<ProductModel> products = new ArrayList<>();
+    private ArrayList<ProductModel> products;
     private Activity context;
 
     public CustomListView(Activity context, ArrayList<ProductModel> products) {

@@ -11,6 +11,8 @@ import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -20,15 +22,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AvailableApartments extends ListActivity {
-
-    /*private String[] titles = {"India", "China", "Nepal", "Bhutan"};
-    private String[] prices = {"Delhi", "Beijing", "Kathmandu", "Thimphu"};
-    private Integer[] imageid = {
-            R.drawable.ic_home,
-            R.drawable.ic_home,
-            R.drawable.ic_home,
-            R.drawable.ic_home};*/
+public class AvailableApartments extends AppCompatActivity {
 
     private ArrayList<ProductModel> products = new ArrayList<>();
 
@@ -39,6 +33,8 @@ public class AvailableApartments extends ListActivity {
 
         String productType = getIntent().getStringExtra(Constants.PRODUCT);
         loadProducts(productType);
+
+        setTitle("Available " + productType + 's');
 
     }
 
@@ -71,10 +67,17 @@ public class AvailableApartments extends ListActivity {
         CustomListView customListView = new CustomListView(this, products);
         listView.setAdapter(customListView);
 
+        //We are creating "position - 1" because the search view index is 0
+        //as it associated with the list view
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Intent intent = new Intent(AvailableApartments.this, ApartmentDetails.class);
+                intent.putExtra(Constants.ADDRESS, products.get(position - 1).getAddress());
+                intent.putExtra(Constants.PRICE, products.get(position - 1).getPrice());
+                intent.putExtra(Constants.SPECIFICATIONS, products.get(position - 1).getSpecifications());
+                intent.putExtra(Constants.NAME, products.get(position - 1).getName());
+                intent.putExtra(Constants.PHONE_NUMBER, products.get(position - 1).getPhone());
                 startActivity(intent);
             }
         });

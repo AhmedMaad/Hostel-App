@@ -27,9 +27,9 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.log_in);
         mAuth = FirebaseAuth.getInstance();
         progressBar = findViewById(R.id.progress_circular);
+        setTitle("Login");
     }
 
-    //TODO: add reuired field when ETs are empty
     public void login(View view) {
         progressBar.setVisibility(View.VISIBLE);
         EditText emailET = findViewById(R.id.logInEmail);

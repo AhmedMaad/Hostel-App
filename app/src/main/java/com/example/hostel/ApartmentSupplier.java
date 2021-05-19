@@ -30,6 +30,8 @@ public class ApartmentSupplier extends AppCompatActivity {
     private Button doneBtn;
     private ProgressBar progressBar;
 
+    String productType;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +39,10 @@ public class ApartmentSupplier extends AppCompatActivity {
         productIB = findViewById(R.id.addPhoto);
         doneBtn = findViewById(R.id.btn_done);
         progressBar = findViewById(R.id.progress_circular);
+
+        //Retrieving product type from main activity
+        productType = getIntent().getStringExtra(Constants.PRODUCT);
+        setTitle(productType);
     }
 
     //TODO: add to firebase with (apartment or room) they are sent from the prev activity
@@ -78,12 +84,17 @@ public class ApartmentSupplier extends AppCompatActivity {
         String imageName = "image: " + day + '-' + month + '-' + year + ' ' + hour + ':' + minute
                 + ':' + second + '.' + millis;
 
-        StorageReference storageRef = storage.getReference().child(imageName);
-        storageRef.putFile(imageUri)
-                .addOnSuccessListener(taskSnapshot -> {
-                    Log.d("trace", "Image uploaded");
-                    getLinkForUploadedImage(storageRef.getDownloadUrl());
-                });
+        if (imageUri == null)
+            Toast.makeText(this, R.string.picture_required, Toast.LENGTH_SHORT).show();
+        else {
+            StorageReference storageRef = storage.getReference().child(imageName);
+            storageRef.putFile(imageUri)
+                    .addOnSuccessListener(taskSnapshot -> {
+                        Log.d("trace", "Image uploaded");
+                        getLinkForUploadedImage(storageRef.getDownloadUrl());
+                    });
+        }
+
     }
 
     //Getting a download link after uploading a picture
@@ -109,22 +120,24 @@ public class ApartmentSupplier extends AppCompatActivity {
         String name = nameET.getText().toString();
         String phone = phoneET.getText().toString();
 
-        //Retrieving product type from main activity
-        String productType = getIntent().getStringExtra(Constants.PRODUCT);
+        if (address.isEmpty() || price.isEmpty() || specifications.isEmpty()
+                || name.isEmpty() || phone.isEmpty()) {
+            Toast.makeText(this, R.string.missing_fields, Toast.LENGTH_SHORT).show();
+        } else {
+            ProductModel product =
+                    new ProductModel(imageUri.toString(), address, Double.parseDouble(price)
+                            , specifications, name, phone, productType, USER_ID);
 
-        ProductModel product =
-                new ProductModel(imageUri.toString(), address, Double.parseDouble(price)
-                        , specifications, name, phone, productType, USER_ID);
-
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db
-                .collection(Constants.PRODUCTS)
-                .add(product)
-                .addOnSuccessListener(documentReference -> {
-                    documentReference.update("id", documentReference.getId());
-                    Toast.makeText(this, R.string.product_added, Toast.LENGTH_SHORT).show();
-                    finish();
-                });
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+            db
+                    .collection(Constants.PRODUCTS)
+                    .add(product)
+                    .addOnSuccessListener(documentReference -> {
+                        documentReference.update("id", documentReference.getId());
+                        Toast.makeText(this, R.string.product_added, Toast.LENGTH_SHORT).show();
+                        finish();
+                    });
+        }
 
     }
 

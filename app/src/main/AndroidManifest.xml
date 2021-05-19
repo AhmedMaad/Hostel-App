@@ -9,8 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Hostel">
-        <activity android:name=".LoginActivity"></activity>
-        <activity android:name=".SignupActivity">
+        <activity
+            android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,11 +18,16 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".SignupActivity"
+            android:label="Signup" />
+        <activity
             android:name=".SettingsActivity"
-            android:label="settings" />
-        <activity android:name=".ProfileActivity" />
+            android:label="Settings" />
+        <activity
+            android:name=".ProfileActivity"
+            android:label="My Profile" />
         <activity android:name=".ApartmentSupplier" />
-        <activity android:name=".ApartmentDetails" />
+        <activity android:name=".ApartmentDetails" android:label="Details"/>
         <activity android:name=".AvailableApartments" />
         <activity android:name=".MainActivity" />
     </application>
