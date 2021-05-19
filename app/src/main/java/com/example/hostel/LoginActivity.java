@@ -31,7 +31,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void login(View view) {
-        progressBar.setVisibility(View.VISIBLE);
         EditText emailET = findViewById(R.id.logInEmail);
         EditText passwordET = findViewById(R.id.logInPassword);
         String email = emailET.getText().toString();
@@ -46,6 +45,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void signInUsingFirebase(String email, String password) {
+        progressBar.setVisibility(View.VISIBLE);
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
