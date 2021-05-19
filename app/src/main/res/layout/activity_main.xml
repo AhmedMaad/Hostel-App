@@ -1,77 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_gravity="center_horizontal"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
     <Button
         android:id="@+id/supplier"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="@android:dimen/thumbnail_height"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="32dp"
         android:onClick="onClick"
         android:text="rent your property"
         app:backgroundTint="#009688"
         app:icon="@drawable/landlord"
         app:iconGravity="top"
-        app:iconSize="120dp" />
+        app:iconSize="120dp"
+        app:layout_constraintEnd_toEndOf="@id/consumer"
+        app:layout_constraintStart_toStartOf="@id/consumer"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/consumer"
         android:layout_width="wrap_content"
         android:layout_height="@android:dimen/thumbnail_height"
-        android:layout_below="@id/supplier"
-        android:layout_alignStart="@id/supplier"
-        android:layout_alignEnd="@id/supplier"
         android:onClick="onClick"
         android:text="Find a property to rent"
         app:backgroundTint="#009688"
         app:icon="@drawable/tenant"
         app:iconGravity="top"
-        app:iconSize="120dp" />
+        app:iconSize="120dp"
+        app:layout_constraintBottom_toTopOf="@id/navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/supplier" />
 
     <Button
         android:id="@+id/apartment"
-        android:layout_width="@android:dimen/thumbnail_width"
+        android:layout_width="0dp"
         android:layout_height="@android:dimen/thumbnail_height"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="32dp"
         android:onClick="onClick"
         android:text="apartment"
         android:visibility="gone"
         app:backgroundTint="#009688"
         app:icon="@drawable/apartment"
         app:iconGravity="top"
-        app:iconSize="120dp" />
+        app:iconSize="120dp"
+        app:layout_constraintEnd_toEndOf="@id/consumer"
+        app:layout_constraintStart_toStartOf="@id/consumer"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/room"
-        android:layout_width="@android:dimen/thumbnail_width"
+        android:layout_width="0dp"
         android:layout_height="@android:dimen/thumbnail_height"
-        android:layout_below="@id/apartment"
-        android:layout_alignStart="@id/apartment"
-        android:layout_alignEnd="@id/apartment"
         android:onClick="onClick"
         android:text="room"
-        android:visibility="gone"
+        android:visibility="invisible"
         app:backgroundTint="#009688"
         app:icon="@drawable/room"
         app:iconGravity="top"
-        app:iconSize="120dp" />
+        app:iconSize="120dp"
+        app:layout_constraintBottom_toTopOf="@id/navigation"
+        app:layout_constraintEnd_toEndOf="@id/consumer"
+        app:layout_constraintStart_toStartOf="@id/consumer"
+        app:layout_constraintTop_toBottomOf="@id/supplier"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigation"
         style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         app:backgroundTint="#009688"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/bottomnav" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

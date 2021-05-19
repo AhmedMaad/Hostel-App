@@ -56,9 +56,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         if (v.getId() == R.id.supplier) {
             button = findViewById(R.id.supplier);
-            button.setVisibility(View.GONE);
+            button.setVisibility(View.INVISIBLE);
             button = findViewById(R.id.consumer);
-            button.setVisibility(View.GONE);
+            button.setVisibility(View.INVISIBLE);
             button = findViewById(R.id.apartment);
             button.setVisibility(View.VISIBLE);
             button = findViewById(R.id.room);
@@ -66,9 +66,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             user = "supplier";
         } else if (v.getId() == R.id.consumer) {
             button = findViewById(R.id.supplier);
-            button.setVisibility(View.GONE);
+            button.setVisibility(View.INVISIBLE);
             button = findViewById(R.id.consumer);
-            button.setVisibility(View.GONE);
+            button.setVisibility(View.INVISIBLE);
             button = findViewById(R.id.apartment);
             button.setVisibility(View.VISIBLE);
             button = findViewById(R.id.room);

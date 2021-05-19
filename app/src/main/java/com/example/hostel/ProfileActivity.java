@@ -52,6 +52,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         backgroundIV.setImageResource(backgrounds[chosenBG]);
 
         profileIV = findViewById(R.id.user_profile_photo);
+        profileIV.setEnabled(false);
         nameET = findViewById(R.id.profileName);
         genderET = findViewById(R.id.profileGender);
         numberET = findViewById(R.id.profileNumber);

@@ -17,8 +17,8 @@
             android:layout_gravity="center"
             android:layout_marginTop="16dp"
             android:onClick="choosePicture"
-            android:src="@drawable/ic_add"
             android:scaleType="fitCenter"
+            android:src="@drawable/ic_add"
             app:backgroundTint="#5B121212" />
 
         <EditText
@@ -45,6 +45,7 @@
             android:layout_marginBottom="15dp"
             android:background="@color/dark_green"
             android:hint="Price"
+            android:inputType="numberDecimal"
             android:padding="20dp"
             android:textColor="@color/black" />
 
