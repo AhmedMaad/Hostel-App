@@ -118,6 +118,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="40dp"
             android:text="My ads"
+            android:onClick="openAdsActivity"
             app:backgroundTint="#009688" />
     </RelativeLayout>
 

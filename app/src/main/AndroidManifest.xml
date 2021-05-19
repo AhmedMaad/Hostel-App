@@ -9,14 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Hostel">
-        <activity
-            android:name=".LoginActivity">
+        <activity android:name=".AdsActivity"></activity>
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".LoginActivity" />
         <activity
             android:name=".SignupActivity"
             android:label="Signup" />
@@ -27,7 +28,9 @@
             android:name=".ProfileActivity"
             android:label="My Profile" />
         <activity android:name=".ApartmentSupplier" />
-        <activity android:name=".ApartmentDetails" android:label="Details"/>
+        <activity
+            android:name=".ApartmentDetails"
+            android:label="Details" />
         <activity android:name=".AvailableApartments" />
         <activity android:name=".MainActivity" />
     </application>

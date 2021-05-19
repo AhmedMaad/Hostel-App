@@ -50,19 +50,19 @@ public class ApartmentDetails extends AppCompatActivity {
         TextView phoneNoTV = findViewById(R.id.apartmentDetPhoneCon);
 
         String address = getIntent().getStringExtra(Constants.ADDRESS);
-        addressTV.setText(address);
+        addressTV.setText("Address: " + address);
 
         double price = getIntent().getDoubleExtra(Constants.PRICE, -1);
-        priceTV.setText(String.valueOf(price));
+        priceTV.setText("Price: " + price);
 
         String specifications = getIntent().getStringExtra(Constants.SPECIFICATIONS);
-        specificationsTV.setText(specifications);
+        specificationsTV.setText("Specifications: " + specifications);
 
         String name = getIntent().getStringExtra(Constants.NAME);
-        nameTV.setText(name);
+        nameTV.setText("Name: " + name);
 
         String phoneNo = getIntent().getStringExtra(Constants.PHONE_NUMBER);
-        phoneNoTV.setText(phoneNo);
+        phoneNoTV.setText("Mobile: " + phoneNo);
 
     }
 

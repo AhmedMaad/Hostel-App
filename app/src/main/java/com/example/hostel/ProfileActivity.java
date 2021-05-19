@@ -199,4 +199,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         profileIV.setEnabled(false);
     }
 
+    public void openAdsActivity(View view) {
+        Intent i = new Intent(this, AdsActivity.class);
+        startActivity(i);
+    }
 }
