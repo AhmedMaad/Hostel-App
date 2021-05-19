@@ -11,43 +11,25 @@ import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import org.w3c.dom.Text;
 
 
 public class ApartmentDetails extends AppCompatActivity {
-
-    private ImageSwitcher sw;
-    private int currentImage;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.apartment_details);
-        sw = findViewById(R.id.imageSwitcher);
-        sw.setFactory(() -> {
-            ImageView myView = new ImageView(ApartmentDetails.this);
-            return myView;
-        });
-        sw.setImageResource(R.drawable.landlord);
-        currentImage = R.drawable.landlord;
-        sw.setOnTouchListener(new OnSwipeTouchListener(ApartmentDetails.this) {
-            @Override
-            public void onSwipeLeft() {
-                changeImage(sw);
-            }
-
-            @Override
-            public void onSwipeRight() {
-                changeImage(sw);
-            }
-        });
 
         TextView addressTV = findViewById(R.id.apartmentDetAddressCon);
         TextView priceTV = findViewById(R.id.apartmentDetPriceCon);
         TextView specificationsTV = findViewById(R.id.apartmentDetSpecificationsCon);
         TextView nameTV = findViewById(R.id.apartmentDetNameCon);
         TextView phoneNoTV = findViewById(R.id.apartmentDetPhoneCon);
+        ImageView imageView = findViewById(R.id.imageView);
 
         String address = getIntent().getStringExtra(Constants.ADDRESS);
         addressTV.setText("Address: " + address);
@@ -64,16 +46,9 @@ public class ApartmentDetails extends AppCompatActivity {
         String phoneNo = getIntent().getStringExtra(Constants.PHONE_NUMBER);
         phoneNoTV.setText("Mobile: " + phoneNo);
 
-    }
+        String picture = getIntent().getStringExtra(Constants.PICTURE);
+        Picasso.with(this).load(picture).into(imageView);
 
-    public void changeImage(View view) {
-        if (currentImage == R.drawable.landlord) {
-            sw.setImageResource(R.drawable.tenant);
-            currentImage = R.drawable.tenant;
-        } else {
-            sw.setImageResource(R.drawable.landlord);
-            currentImage = R.drawable.landlord;
-        }
     }
 
     public void callMobile(View view) {

@@ -110,12 +110,14 @@ public class AvailableApartments extends AppCompatActivity {
                 intent.putExtra(Constants.SPECIFICATIONS, searchList.get(position - 1).getSpecifications());
                 intent.putExtra(Constants.NAME, searchList.get(position - 1).getName());
                 intent.putExtra(Constants.PHONE_NUMBER, searchList.get(position - 1).getPhone());
+                intent.putExtra(Constants.PICTURE, searchList.get(position-1).getPicture());
             } else {
                 intent.putExtra(Constants.ADDRESS, products.get(position - 1).getAddress());
                 intent.putExtra(Constants.PRICE, products.get(position - 1).getPrice());
                 intent.putExtra(Constants.SPECIFICATIONS, products.get(position - 1).getSpecifications());
                 intent.putExtra(Constants.NAME, products.get(position - 1).getName());
                 intent.putExtra(Constants.PHONE_NUMBER, products.get(position - 1).getPhone());
+                intent.putExtra(Constants.PICTURE, products.get(position-1).getPicture());
             }
             startActivity(intent);
 
