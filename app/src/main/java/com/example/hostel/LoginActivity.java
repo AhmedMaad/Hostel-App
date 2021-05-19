@@ -58,7 +58,7 @@ public class LoginActivity extends AppCompatActivity {
                             startActivity(i);
                             finish();
                         } else
-                            Log.d("trace", "Login Failed: " + task.getException());
+                            Toast.makeText(LoginActivity.this, R.string.wrong_email_password, Toast.LENGTH_SHORT).show();
                     }
                 });
     }

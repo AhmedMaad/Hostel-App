@@ -7,6 +7,7 @@ public class UserModel {
     private String email;
     private String phoneNumber;
     private String gender;
+    private String profilePicture;
 
     public UserModel(){
 
@@ -17,6 +18,15 @@ public class UserModel {
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.gender = gender;
+    }
+
+    public UserModel(String name, String email, String phoneNumber, String gender
+            , String profilePicture) {
+        this.name = name;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.gender = gender;
+        this.profilePicture = profilePicture;
     }
 
     public String getName() {
@@ -33,6 +43,10 @@ public class UserModel {
 
     public String getGender() {
         return gender;
+    }
+
+    public String getProfilePicture(){
+        return profilePicture;
     }
 
 }

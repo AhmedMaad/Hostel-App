@@ -38,4 +38,6 @@
     <string name="email_update_error">Error updating Email, try another one.</string>
     <string name="cancel">Cancel</string>
     <string name="update">Update</string>
+    <string name="wrong_email_password">Wrong email or password.</string>
+    <string name="profile_updated">Profile Updated Successfully</string>
 </resources>
