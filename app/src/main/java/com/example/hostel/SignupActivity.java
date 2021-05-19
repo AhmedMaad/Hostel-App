@@ -86,7 +86,7 @@ public class SignupActivity extends AppCompatActivity {
         UserModel user = new UserModel(name, email, phoneNo, gender);
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db
-                .collection("users")
+                .collection(Constants.USERS)
                 .document(userId)
                 .set(user)
                 .addOnSuccessListener(documentReference -> {

@@ -27,4 +27,15 @@
     <string name="product_added">Product Added Successfully</string>
     <string name="no_mobile">No mobile number associated</string>
     <string name="picture_required">A picture is required</string>
+    <string name="change_account_settings">Change Account settings:</string>
+    <string name="email_updated">User email address updated.</string>
+    <string name="change_email">Change Email</string>
+    <string name="change_password">Change Password</string>
+    <string name="password_updated">User password updated.</string>
+    <string name="delete_account">Delete Account</string>
+    <string name="account_deleted">User account deleted.</string>
+    <string name="logout">Logout</string>
+    <string name="email_update_error">Error updating Email, try another one.</string>
+    <string name="cancel">Cancel</string>
+    <string name="update">Update</string>
 </resources>

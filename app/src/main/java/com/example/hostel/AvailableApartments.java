@@ -65,7 +65,6 @@ public class AvailableApartments extends AppCompatActivity {
         ListView listView = findViewById(android.R.id.list);
 
         // Setting header
-        //  SearchView searchView = new SearchView(this);
         listView.addHeaderView(searchView);
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
