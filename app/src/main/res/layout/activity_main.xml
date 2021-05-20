@@ -73,7 +73,7 @@
         style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:backgroundTint="#009688"
+        app:backgroundTint="@color/dark_green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/bottomnav" />
 

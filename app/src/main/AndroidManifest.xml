@@ -12,7 +12,9 @@
         <activity
             android:name=".AdsActivity"
             android:label="My Ads" />
-        <activity android:name=".SplashActivity">
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/SplashStyle">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

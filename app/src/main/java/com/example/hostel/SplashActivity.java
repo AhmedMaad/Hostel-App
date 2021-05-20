@@ -12,14 +12,13 @@ public class SplashActivity extends AwesomeSplash {
     @Override
     public void initSplash(ConfigSplash configSplash) {
 
-
         //Customize Circular Reveal
         configSplash.setBackgroundColor(R.color.dark_green); //any color you want form colors.xml
         configSplash.setAnimCircularRevealDuration(4000); //int ms
         configSplash.setRevealFlagX(Flags.REVEAL_RIGHT);  //or Flags.REVEAL_LEFT
         configSplash.setRevealFlagY(Flags.REVEAL_BOTTOM); //or Flags.REVEAL_TOP
 
-  //Customize Logo
+        //Customize Logo
         configSplash.setLogoSplash(R.drawable.ic_key); //or any other drawable
         configSplash.setAnimLogoSplashDuration(2000); //int ms
         configSplash.setAnimLogoSplashTechnique(Techniques.ZoomIn); //choose one form Techniques (ref: https://github.com/daimajia/AndroidViewAnimations)
